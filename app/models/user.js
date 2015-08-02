@@ -31,6 +31,8 @@ UserSchema.pre('save', function (next) {
 });
 
 UserSchema.methods.comparePassword = function (password) {
+	var user = this;
+	
 	//Returns true if passwords match, false otherwise
 	return bcrypt.compareSync(password, user.password);
 };

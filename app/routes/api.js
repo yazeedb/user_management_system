@@ -1,9 +1,73 @@
+//Secret key for creating JWTs
+var secret = require('../../config.js').secret,
+	jwt = require('jsonwebtoken');
+
 //We only need to require() this file because all DB controllers are included with it
 var dbInterface = require('../controllers/dbInterface.js');
 
 function apiRouter (app, express) {
 	//New express Router
 	var apiRouter = express.Router();
+
+	apiRouter.post('/authenticate', function (req, res) {
+		//Query for the database
+		var query = { username: req.body.username };
+		//Tell DB controller to grab these fields from the user
+		var whatToSelect = 'username password firstName lastName';
+
+		dbInterface.getUsers(query, whatToSelect)
+		.exec(function (err, user) {
+			if (err)
+				res.send(err);
+
+			if (user) {
+				//if the password entered is invalid
+				if (!user.comparePassword(req.body.password)) {
+					return res.status(403).send({ message: 'Incorrect password' });
+				} else {
+					var payload = {
+						//User info to give the JWT payload
+						username: user.username,
+						firstName: user.firstName,
+						lastName: user.lastName
+					};
+					//Token will expire in 24 hours
+					var options = {	expiresInMinutes: 1440 };
+
+					var token = jwt.sign(payload, secret, options);
+
+					res.json({
+						token: token
+					});
+				}
+
+			} else {
+				return res.json({ message: 'User not found' });
+			}
+		})
+	});
+
+	apiRouter.use(function (req, res, next) {
+		var token = req.params.token || req.body.token || req.headers['x-access-token'] || req.query.token; 
+
+		if (token) {
+			jwt.verify(token, secret, function (err, decoded) {
+				if (err) {
+					return res.json({
+						message: 'Failed to authenticate token'
+					});
+				} else {
+					//If all is well, save to req object to be used in other routes
+					req.decoded = decoded;
+					next();
+				}
+			});
+		} else {
+			return res.status(403).send({
+				message: 'No token provided'
+			});
+		}
+	});
 
 	apiRouter.post('/users', function (req, res) {
 		dbInterface.postUsers(req.body).addBack(function (err) {
