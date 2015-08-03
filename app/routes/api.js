@@ -128,6 +128,11 @@ function apiRouter (app, express) {
 			});
 		});
 
+	//Route to return user's JWT, containing their username, first name, and last name
+	apiRouter.get('/me', function (req, res) {
+		res.send(req.decoded);
+	});
+
 	//Once all routes are configured, return the router
 	return apiRouter;
 }
