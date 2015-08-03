@@ -1,0 +1,1 @@
+var ums = angular.module('ums', ['ui.router']);

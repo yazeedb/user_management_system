@@ -1,0 +1,17 @@
+<form method="POST">
+	First Name
+	<input type="text" ng-model="loginCtrl.formData.firstName">
+	Last Name
+	<input type="text" ng-model="loginCtrl.formData.lastName">
+	Username
+	<input type="text" ng-model="loginCtrl.formData.username">
+	Password
+	<input type="text" ng-model="loginCtrl.formData.password">
+
+	<label for="admin">Admin</label>
+	<select id="admin">
+		<option value="true">True</option>
+		<option value="false">False</option>
+	</select>
+	<button type="submit">Signup</button>
+</form>
