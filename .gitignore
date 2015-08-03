@@ -30,5 +30,6 @@ node_modules
 #Bower components
 public/libs
 
-#Config file containing database and token secret
 config.js
+flowcharts
+
