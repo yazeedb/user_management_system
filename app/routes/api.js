@@ -13,12 +13,12 @@ function apiRouter (app, express) {
 		//Query for the database
 		var query = { username: req.body.username };
 		//Tell DB controller to grab these fields from the user
-		var whatToSelect = 'username password firstName lastName';
+		var whatToSelect = 'username password admin firstName lastName';
 
 		dbInterface.getUsers(query, whatToSelect)
 		.exec(function (err, user) {
 			if (err)
-				res.send(err);
+				return res.send(err);
 
 			if (user) {
 				//if the password entered is invalid
@@ -28,6 +28,7 @@ function apiRouter (app, express) {
 					var payload = {
 						//User info to give the JWT payload
 						username: user.username,
+						admin: user.admin,
 						firstName: user.firstName,
 						lastName: user.lastName
 					};
