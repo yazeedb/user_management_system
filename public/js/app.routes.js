@@ -1,6 +1,6 @@
 ums.config(['$locationProvider', '$urlRouterProvider', '$stateProvider', routeConfig]);
 
-function routeConfig ($locationProvider, $urlRouterProvider, $stateProvider) {
+function routeConfig ($locationProvider, $urlRouterProvider, $stateProvider, apiInterceptor) {
 	
 	$stateProvider
 		.state('home', {

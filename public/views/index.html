@@ -6,11 +6,11 @@
 
 	<base href="/">
 
-	<script src="libs/angular/angular.min.js"></script>
-	<script src="libs/angular-ui-router/release/angular-ui-router.min.js"></script>
+	<script src="libs/angular/angular.js"></script>
+	<script src="libs/angular-ui-router/release/angular-ui-router.js"></script>
 </head>
 <body ng-app="ums">
-	<header>
+	<header ng-controller="navController as navCtrl">
 		<ul>
 			<li>
 				<a ui-sref="home">Home</a>
@@ -20,6 +20,9 @@
 			</li>
 			<li>
 				<a ui-sref="signup">Signup</a>
+			</li>
+			<li>
+				<a ui-sref="login" ng-click="navCtrl.logout()">Logout</a>
 			</li>
 		</ul>
 	</header>
@@ -31,10 +34,12 @@
 
 	<!-- Controllers -->
 	<script src="js/controllers/homeController.js"></script>
+	<script src="js/controllers/navController.js"></script>
 	<script src="js/controllers/loginController.js"></script>
 	<script src="js/controllers/signupController.js"></script>
 
 	<!-- Services -->
-	<script src=""></script>
+	<script src="js/services/authService.js"></script>
+	<script src="js/services/userService.js"></script>
 </body>
 </html>

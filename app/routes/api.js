@@ -43,7 +43,7 @@ function apiRouter (app, express) {
 				}
 
 			} else {
-				return res.json({ message: 'User not found' });
+				return res.status(403).send({ message: 'User not found' });
 			}
 		})
 	});
@@ -64,7 +64,7 @@ function apiRouter (app, express) {
 				}
 			});
 		} else {
-			return res.status(403).send({
+			return res.status(401).send({
 				message: 'No token provided'
 			});
 		}
