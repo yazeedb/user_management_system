@@ -22,6 +22,13 @@ function routeConfig ($locationProvider, $urlRouterProvider, $stateProvider, api
 			templateUrl: 'views/pages/signup.html',
 			controller: 'signupController',
 			controllerAs: 'signupCtrl'
+		})
+
+		.state('users', {
+			url: '/users',
+			templateUrl: 'views/pages/users/all.html',
+			controller: 'usersController',
+			controllerAs: 'usersCtrl'
 		});
 
 	$urlRouterProvider.otherwise('/');

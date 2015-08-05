@@ -48,6 +48,21 @@ function apiRouter (app, express) {
 		})
 	});
 
+	apiRouter.post('/users', function (req, res) {
+			dbInterface.postUsers(req.body).addBack(function (err) {
+				if (err) {
+					//This means a duplicate user has been entered
+					if (err.code == 11000) {
+						res.json({ message: 'That username is already taken' });
+					} else {
+						res.send(err);
+					}
+				} else {
+					res.json({ message: 'User added' });
+				}
+			});
+		});
+
 	apiRouter.use(function (req, res, next) {
 		var token = req.params.token || req.body.token || req.headers['x-access-token'] || req.query.token; 
 
@@ -68,21 +83,6 @@ function apiRouter (app, express) {
 				message: 'No token provided'
 			});
 		}
-	});
-
-	apiRouter.post('/users', function (req, res) {
-		dbInterface.postUsers(req.body).addBack(function (err) {
-			if (err) {
-				//This means a duplicate user has been entered
-				if (err.code == 11000) {
-					res.json({ message: 'That username is already taken' });
-				} else {
-					res.send(err);
-				}
-			} else {
-				res.json({ message: 'User added' });
-			}
-		});
 	});
 
 	apiRouter.get('/users', function (req, res) {

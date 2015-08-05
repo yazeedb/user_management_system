@@ -6,6 +6,10 @@ function authService ($window, $http) {
 		return $window.localStorage.getItem('token');
 	};
 
+	this.isLoggedIn = function () {
+		return this.getToken() ? true : false;
+	};
+
 	//Set a new token
 	this.setToken = function (token) {
 		if (!token)
@@ -25,6 +29,9 @@ function authService ($window, $http) {
 
 	//Remove an existing token
 	this.removeToken = function () {
+		if (!this.isLoggedIn())
+			throw new Error('There is no token to remove!');
+		
 		$window.localStorage.removeItem('token');
 	};
 

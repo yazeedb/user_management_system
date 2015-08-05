@@ -9,20 +9,16 @@
 	<script src="libs/angular/angular.js"></script>
 	<script src="libs/angular-ui-router/release/angular-ui-router.js"></script>
 </head>
-<body ng-app="ums">
-	<header ng-controller="navController as navCtrl">
+<body ng-app="ums" ng-controller="navController as navCtrl">
+	<header>
 		<ul>
 			<li>
-				<a ui-sref="home">Home</a>
-			</li>
+				<a ui-sref="users">Users</a>
+			</li>			
 			<li>
-				<a ui-sref="login">Login</a>
-			</li>
-			<li>
-				<a ui-sref="signup">Signup</a>
-			</li>
-			<li>
-				<a ui-sref="login" ng-click="navCtrl.logout()">Logout</a>
+				<a ui-sref="login" ng-click="navCtrl.logout()">
+					Logout
+				</a>
 			</li>
 		</ul>
 	</header>
@@ -37,6 +33,7 @@
 	<script src="js/controllers/navController.js"></script>
 	<script src="js/controllers/loginController.js"></script>
 	<script src="js/controllers/signupController.js"></script>
+	<script src="js/controllers/usersController.js"></script>
 
 	<!-- Services -->
 	<script src="js/services/authService.js"></script>

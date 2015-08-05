@@ -1,17 +1,19 @@
-<form method="POST">
+<form method="POST" ng-submit="signupCtrl.submitForm(signupCtrl.formData)">
 	First Name
-	<input type="text" ng-model="loginCtrl.formData.firstName">
+	<input type="text" ng-model="signupCtrl.formData.firstName">
 	Last Name
-	<input type="text" ng-model="loginCtrl.formData.lastName">
+	<input type="text" ng-model="signupCtrl.formData.lastName">
 	Username
-	<input type="text" ng-model="loginCtrl.formData.username">
+	<input type="text" ng-model="signupCtrl.formData.username">
 	Password
-	<input type="text" ng-model="loginCtrl.formData.password">
+	<input type="text" ng-model="signupCtrl.formData.password">
 
 	<label for="admin">Admin</label>
-	<select id="admin">
+	<select id="admin" ng-model="signupCtrl.formData.admin">
 		<option value="true">True</option>
 		<option value="false">False</option>
 	</select>
 	<button type="submit">Signup</button>
 </form>
+
+{{signupCtrl}}

@@ -1,6 +1,11 @@
 ums.controller('loginController', ['$state', 'authService', loginController]);
 
 function loginController ($state, authService) {
+	//If the user is logged in, they should not be able to access this page
+	if (authService.isLoggedIn())
+		return $state.go('home');
+
+	//Otherwise, continue
 	var vm = this;
 
 	vm.formData = {};
