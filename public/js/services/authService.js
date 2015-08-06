@@ -23,8 +23,12 @@ function authService ($window, $http) {
 	this.setHeaders = function () {
 		var token = this.getToken();
 		
-		if (token)
+		if (token) {
 			$http.defaults.headers.common['x-access-token'] = token;
+		}
+		else {
+			throw new Error('Can\'t set headers because no token was provided');
+		}
 	};
 
 	//Remove an existing token
