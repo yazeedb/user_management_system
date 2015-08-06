@@ -1,27 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
 	<title>User Management System</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<base href="/">
+
+	<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
 
 	<script src="libs/angular/angular.js"></script>
 	<script src="libs/angular-ui-router/release/angular-ui-router.js"></script>
 </head>
 <body ng-app="ums" ng-controller="navController as navCtrl">
-	<header>
-		<ul>
-			<li>
-				<a ui-sref="users">Users</a>
-			</li>			
-			<li>
-				<a ui-sref="login" ng-click="navCtrl.logout()">
-					Logout
-				</a>
+	<div class="pure-menu pure-menu-horizontal">
+		<a ui-sref="home" class="pure-menu-heading pure-menu-link">
+			UMS
+		</a>
+		<ul class="pure-menu-list">
+			<li class="pure-menu-item">
+				<a ui-sref="users" class="pure-menu-link">Users</a>
+			</li>
+			<li class="pure-menu-item">
+				<a class="pure-menu-link" ui-sref="login" ng-click="navCtrl.logout()">Logout</a>
 			</li>
 		</ul>
-	</header>
+	</div>
 	<ui-view></ui-view>
 
 	<!-- Main app/routes -->

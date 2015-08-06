@@ -5,6 +5,6 @@ function navController ($state, authService) {
 
 	vm.logout = function () {
 		authService.removeToken();
-		$state.go('login');
+		//$state.go('login');
 	};
 }
