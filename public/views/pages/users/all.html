@@ -7,7 +7,7 @@
 		</li>
 	</ul>
 
-	<div class="user-card panel panel-default">
+	<div class="user-card panel panel-default" ng-show="usersCtrl.oneUser">
 		<div class="list-group">
 			<div class="user-attr list-group-item">
 				<span class="attr-title">Username</span>
@@ -20,6 +20,10 @@
 			<div class="user-attr list-group-item">
 				<span class="attr-title">Email</span>
 				{{ usersCtrl.oneUser.email }}
+			</div>
+			<div class="user-attr list-group-item" ng-repeat="(info, attr) in usersCtrl.oneUser.etc">
+				<span class="attr-title">{{ info | capitalizeFirstLetter }}</span>
+				{{ attr }}
 			</div>
 		</div>
 	</div>	

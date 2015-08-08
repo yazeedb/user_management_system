@@ -10,7 +10,7 @@ var UserSchema = new mongoose.Schema({
 	admin: { type: Boolean },
 	firstName: { type: String },
 	lastName: { type: String },
-	etc: [mongoose.Schema.Types.Mixed]
+	etc: { type: Object }
 });
 
 //Before saving the user, run this function

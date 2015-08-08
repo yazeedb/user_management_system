@@ -8,10 +8,10 @@ function makeFakeUser () {
 		admin: randomBoolean(),
 		firstName: faker.name.firstName(),
 		lastName: faker.name.lastName(),
-		etc: [
-			{position: faker.name.jobTitle()},
-			{country: faker.address.country()}
-		]
+		etc: {
+				position: faker.name.jobTitle(),
+				country: faker.address.country()
+			}
 	};
 
 	fakePerson.email = faker.internet.email(fakePerson.firstName, fakePerson.lastName);
