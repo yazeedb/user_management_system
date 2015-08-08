@@ -1,6 +1,6 @@
-<ul class="pure-menu-list">
-	<li class="pure-menu-item" ng-repeat="user in usersCtrl.users">
-		<a class="pure-menu-link" ng-click="usersCtrl.showOneUser(user)">
+<ul class="list-group">
+	<li class="list-group-item" ng-repeat="user in usersCtrl.users">
+		<a ng-click="usersCtrl.showOneUser(user)">
 			<span ng-if="user.admin">Admin<br></span>
 			<span>{{ user.username }}</span> <br>
 			<span>{{ user.firstName + ' ' + user.lastName }}</span>

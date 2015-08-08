@@ -3,7 +3,7 @@ var secret = require('../../config.js').secret,
 	jwt = require('jsonwebtoken');
 
 //We only need to require() this file because all DB controllers are included with it
-var dbInterface = require('../controllers/dbInterface.js');
+var dbInterface = require('../controllers/dbControllers/dbInterface.js');
 
 function apiRouter (app, express) {
 	//New express Router
@@ -133,6 +133,26 @@ function apiRouter (app, express) {
 	apiRouter.get('/me', function (req, res) {
 		res.send(req.decoded);
 	});
+
+	apiRouter.get('/fakeUser', function (req, res) {
+		var makeFakeUser = require('../controllers/makeFakeUser.js');
+
+		makeFakeUser().addBack(function (err, user) {
+			if (err) {
+				//This means a duplicate user has been entered
+				if (err.code == 11000) {
+					res.json({ message: 'That username is already taken' });
+				} else {
+					res.send(err);
+				}						
+			} else {
+				res.json({
+					message: 'User added',
+					user: user
+				});
+			}
+		});
+	});	
 
 	//Once all routes are configured, return the router
 	return apiRouter;

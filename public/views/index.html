@@ -7,26 +7,29 @@
 
 	<base href="/">
 
-	<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+	<link rel="stylesheet" type="text/css" href="libs/bootstrap/dist/css/bootstrap.min.css">
 
 	<script src="libs/angular/angular.js"></script>
 	<script src="libs/angular-ui-router/release/angular-ui-router.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Faker/3.0.1/faker.js"></script>
 </head>
 <body ng-app="ums" ng-controller="navController as navCtrl">
-	<div class="pure-menu pure-menu-horizontal">
-		<a ui-sref="home" class="pure-menu-heading pure-menu-link">
-			UMS
-		</a>
-		<ul class="pure-menu-list">
-			<li class="pure-menu-item">
-				<a ui-sref="users" class="pure-menu-link">Users</a>
-			</li>
-			<li class="pure-menu-item">
-				<a class="pure-menu-link" ui-sref="login" ng-click="navCtrl.logout()">Logout</a>
-			</li>
-		</ul>
+	<div class="container-fullwidth">
+		<nav class="navbar navbar-default" role="navigation">
+			<a class="navbar-brand" ui-sref="home">UMS</a>
+			<ul class="nav navbar-nav">
+				<li>
+					<a ui-sref="users">Users</a>
+				</li>
+				<li>
+					<a ui-sref="login" ng-click="navCtrl.logout()">Logout</a>
+				</li>
+			</ul>
+		</nav>
+		<div class="main">
+			<div ui-view></div>
+		</div>
 	</div>
-	<ui-view></ui-view>
 
 	<!-- Main app/routes -->
 	<script src="js/app.js"></script>

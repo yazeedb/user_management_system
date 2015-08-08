@@ -1,4 +1,4 @@
-var User = require('../models/user.js');
+var User = require('../../models/user.js');
 
 function getUsers (query, whatToSelect) {
 	//If no query specified, return a promise to find all users
