@@ -14,7 +14,7 @@ function usersController ($http, $stateParams, userService) {
 	});
 
 	vm.showOneUser = function (user) {
-		console.log(user.etc);
+		console.log(this);
 		vm.oneUser = user;
 	};
 }

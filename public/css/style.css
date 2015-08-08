@@ -11,6 +11,9 @@ a:hover {
   float: left;
   margin: 0 5%;
 }
+.users .user .admin-label {
+  font-weight: 700;
+}
 .users .user:hover {
   cursor: pointer;
 }

@@ -1,18 +1,18 @@
 <div class="users-wrapper">
 	<ul class="users list-group">
-		<li class="user list-group-item" ng-repeat="user in usersCtrl.users" ng-click="usersCtrl.showOneUser(user)">
-			<span ng-if="user.admin">Admin<br></span>
+		<li class="user list-group-item" ng-repeat="user in usersCtrl.users" ng-click="usersCtrl.showOneUser(user)" ng-class="{ 'active': user.username == usersCtrl.oneUser.username }">
+			<span class="admin-label" ng-if="user.admin">Admin<br></span>
 			<span>{{ user.username }}</span> <br>
-			<span>{{ user.firstName + ' ' + user.lastName }}</span>
 		</li>
 	</ul>
 
 	<div class="user-card panel panel-default" ng-show="usersCtrl.oneUser">
-		<div class="list-group">
-			<div class="user-attr list-group-item">
-				<span class="attr-title">Username</span>
+		<div class="panel-heading">
+			<h3 class="panel-title">
 				{{ usersCtrl.oneUser.username }}
-			</div>
+			</h3>
+		</div>
+		<div class="list-group">
 			<div class="user-attr list-group-item">
 				<span class="attr-title">Name</span>
 				{{ usersCtrl.oneUser.firstName + ' ' + usersCtrl.oneUser.lastName }}
