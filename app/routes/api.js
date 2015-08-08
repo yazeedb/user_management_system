@@ -134,11 +134,12 @@ function apiRouter (app, express) {
 		res.send(req.decoded);
 	});
 
-	apiRouter.get('/fakeUser', function (req, res) {
+	apiRouter.get('/fake', function (req, res) {
 		var makeFakeUser = require('../controllers/makeFakeUser.js');
 
 		makeFakeUser().addBack(function (err, user) {
 			if (err) {
+				console.log(err);
 				//This means a duplicate user has been entered
 				if (err.code == 11000) {
 					res.json({ message: 'That username is already taken' });

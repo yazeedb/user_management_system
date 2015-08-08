@@ -5,18 +5,25 @@ function makeFakeUser () {
 	var fakePerson = {
 		username: faker.internet.userName(),
 		password: faker.internet.password(),
+		admin: randomBoolean(),
 		firstName: faker.name.firstName(),
 		lastName: faker.name.lastName(),
-		admin: randomBoolean(),
-		position: faker.name.jobTitle()
+		etc: [
+			{position: faker.name.jobTitle()},
+			{country: faker.address.country()}
+		]
 	};
+
+	fakePerson.email = faker.internet.email(fakePerson.firstName, fakePerson.lastName);
 
 	return dbInterface.postUsers(fakePerson);
 }
 
 function randomBoolean () {
-	//Randomly returns true or false. This will be used to determine a fake user's admin status. I set the number higher so there's less a chance of a user being an admin
-	return Math.random() > 0.7;
+	//Randomly returns true or false. I set the number higher so there's less a chance of a user being an admin
+	var amIAnAdmin = Math.random() > 0.8;
+
+	return amIAnAdmin;
 }
 
 module.exports = makeFakeUser;

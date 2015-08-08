@@ -3,7 +3,7 @@ var gulp = require('gulp'),
 	sourcemaps = require('gulp-sourcemaps'),
 	nodemon = require('gulp-nodemon');
 
-/*gulp.task('compileLess', function () {
+gulp.task('compileLess', function () {
 	return gulp.src('./public/less/style.less')
 		.pipe(less())
 		.pipe(gulp.dest('./public/css'));
@@ -11,7 +11,7 @@ var gulp = require('gulp'),
 
 gulp.task('watchLess', function () {
 	gulp.watch('./public/less/*', ['compileLess']);
-});*/
+});
 
 gulp.task('startServer', function () {
 	nodemon({ script: 'server.js' });

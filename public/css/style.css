@@ -1,0 +1,25 @@
+a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+}
+.users {
+  width: 40%;
+  height: 500px;
+  overflow-y: scroll;
+  float: left;
+  margin: 0 5%;
+}
+.users .user:hover {
+  cursor: pointer;
+}
+.user-card {
+  float: left;
+  width: 40%;
+  margin: 0 5%;
+}
+.user-card .user-attr .attr-title {
+  display: block;
+  font-weight: 700;
+}

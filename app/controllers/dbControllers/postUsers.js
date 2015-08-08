@@ -10,6 +10,9 @@ function postUser (userData) {
 		user[key] = userData[key];
 	}
 
+	if (!user.admin)
+		user.admin = false;
+
 	//Return a save promise
 	return user.save();
 }

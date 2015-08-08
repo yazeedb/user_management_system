@@ -6,9 +6,11 @@ var UserSchema = new mongoose.Schema({
 	//username must be unique–no duplicates allowed
 	username: { type: String, required: true, index: { unique: true }},
 	password: { type: String, required: true, select: false },
-	firstName: { type: String, required: true },
-	lastName: { type: String, required: true },
-	admin: { type: Boolean }
+	email: { type: String, index: { unique: true }},
+	admin: { type: Boolean },
+	firstName: { type: String },
+	lastName: { type: String },
+	etc: [mongoose.Schema.Types.Mixed]
 });
 
 //Before saving the user, run this function
@@ -33,6 +35,9 @@ UserSchema.pre('save', function (next) {
 UserSchema.methods.comparePassword = function (password) {
 	var user = this;
 	
+	if (!password.length)
+		return false;
+
 	//Returns true if passwords match, false otherwise
 	return bcrypt.compareSync(password, user.password);
 };

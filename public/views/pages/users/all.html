@@ -1,16 +1,26 @@
-<ul class="list-group">
-	<li class="list-group-item" ng-repeat="user in usersCtrl.users">
-		<a ng-click="usersCtrl.showOneUser(user)">
+<div class="users-wrapper">
+	<ul class="users list-group">
+		<li class="user list-group-item" ng-repeat="user in usersCtrl.users" ng-click="usersCtrl.showOneUser(user)">
 			<span ng-if="user.admin">Admin<br></span>
 			<span>{{ user.username }}</span> <br>
 			<span>{{ user.firstName + ' ' + user.lastName }}</span>
-		</a>
-	</li>
-</ul>
+		</li>
+	</ul>
 
-<div class="oneUser">
-	<span ng-if="usersCtrl.oneUser.admin">Admin</span>
-	<span>{{ usersCtrl.oneUser.username }}</span>
-	<span>{{ usersCtrl.oneUser.firstName }}</span>
-	<span>{{ usersCtrl.oneUser.lastName }}</span>
-</div>
+	<div class="user-card panel panel-default">
+		<div class="list-group">
+			<div class="user-attr list-group-item">
+				<span class="attr-title">Username</span>
+				{{ usersCtrl.oneUser.username }}
+			</div>
+			<div class="user-attr list-group-item">
+				<span class="attr-title">Name</span>
+				{{ usersCtrl.oneUser.firstName + ' ' + usersCtrl.oneUser.lastName }}
+			</div>
+			<div class="user-attr list-group-item">
+				<span class="attr-title">Email</span>
+				{{ usersCtrl.oneUser.email }}
+			</div>
+		</div>
+	</div>	
+</div>		
