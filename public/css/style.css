@@ -6,13 +6,10 @@ a:hover {
 }
 .users {
   width: 40%;
-  height: 500px;
+  height: 350px;
   overflow-y: scroll;
   float: left;
   margin: 0 5%;
-}
-.users .user .admin-label {
-  font-weight: 700;
 }
 .users .user:hover {
   cursor: pointer;
@@ -21,6 +18,9 @@ a:hover {
   float: left;
   width: 40%;
   margin: 0 5%;
+}
+.user-card .admin-label {
+  float: right;
 }
 .user-card .user-attr .attr-title {
   display: block;

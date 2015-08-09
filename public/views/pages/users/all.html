@@ -1,8 +1,8 @@
 <div class="users-wrapper">
 	<ul class="users list-group">
 		<li class="user list-group-item" ng-repeat="user in usersCtrl.users" ng-click="usersCtrl.showOneUser(user)" ng-class="{ 'active': user.username == usersCtrl.oneUser.username }">
-			<span class="admin-label" ng-if="user.admin">Admin<br></span>
-			<span>{{ user.username }}</span> <br>
+			<span>{{ user.username }}</span>
+			<span class="admin-label badge" ng-if="user.admin">Admin</span>
 		</li>
 	</ul>
 
@@ -10,6 +10,7 @@
 		<div class="panel-heading">
 			<h3 class="panel-title">
 				{{ usersCtrl.oneUser.username }}
+				<span class="admin-label badge" ng-if="usersCtrl.oneUser.admin">Admin</span>
 			</h3>
 		</div>
 		<div class="list-group">
@@ -25,6 +26,9 @@
 				<span class="attr-title">{{ info | capitalizeFirstLetter }}</span>
 				{{ attr }}
 			</div>
+			<a class="user-admin-panel list-group-item" ng-if="usersCtrl.isAdmin">
+				<button class="btn btn-info">Manage</button>
+			</a>
 		</div>
 	</div>	
 </div>		

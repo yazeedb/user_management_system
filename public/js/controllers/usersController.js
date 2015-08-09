@@ -1,7 +1,15 @@
-ums.controller('usersController', ['$http', '$stateParams', 'userService', usersController]);
+ums.controller('usersController', ['$http', 'userService', usersController]);
 
-function usersController ($http, $stateParams, userService) {
+function usersController ($http, userService) {
 	var vm = this;
+
+	var currentUser = userService.getMe();
+	currentUser.success(function (res, status) {
+		vm.isAdmin = res.admin;
+	})
+	.error(function (res, status) {
+		console.log(res);
+	});
 	
 	//API call to get all users from DB
 	var allUsers = userService.all();
@@ -14,7 +22,6 @@ function usersController ($http, $stateParams, userService) {
 	});
 
 	vm.showOneUser = function (user) {
-		console.log(this);
 		vm.oneUser = user;
 	};
 }

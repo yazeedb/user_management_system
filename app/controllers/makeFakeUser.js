@@ -3,7 +3,6 @@ var faker = require('faker'),
 
 function makeFakeUser () {
 	var fakePerson = {
-		username: faker.internet.userName(),
 		password: faker.internet.password(),
 		admin: randomBoolean(),
 		firstName: faker.name.firstName(),
@@ -14,6 +13,8 @@ function makeFakeUser () {
 			}
 	};
 
+	//Invoke these functions with the fake person's first/last names so the username/emails are similar
+	fakePerson.username = faker.internet.userName(fakePerson.firstName, fakePerson.lastName);
 	fakePerson.email = faker.internet.email(fakePerson.firstName, fakePerson.lastName);
 
 	return dbInterface.postUsers(fakePerson);

@@ -63,6 +63,21 @@ function apiRouter (app, express) {
 			});
 		});
 
+	apiRouter.get('/fake', function (req, res) {
+		var makeFakeUser = require('../controllers/makeFakeUser.js');
+
+		makeFakeUser().addBack(function (err, user) {
+			if (err) {
+				res.send(err);						
+			} else {
+				res.json({
+					message: 'User added',
+					user: user
+				});
+			}
+		});
+	});
+
 	apiRouter.use(function (req, res, next) {
 		var token = req.params.token || req.body.token || req.headers['x-access-token'] || req.query.token; 
 
@@ -132,27 +147,6 @@ function apiRouter (app, express) {
 	//Route to return user's JWT, containing their username, first name, and last name
 	apiRouter.get('/me', function (req, res) {
 		res.send(req.decoded);
-	});
-
-	apiRouter.get('/fake', function (req, res) {
-		var makeFakeUser = require('../controllers/makeFakeUser.js');
-
-		makeFakeUser().addBack(function (err, user) {
-			if (err) {
-				console.log(err);
-				//This means a duplicate user has been entered
-				if (err.code == 11000) {
-					res.json({ message: 'That username is already taken' });
-				} else {
-					res.send(err);
-				}						
-			} else {
-				res.json({
-					message: 'User added',
-					user: user
-				});
-			}
-		});
 	});	
 
 	//Once all routes are configured, return the router
