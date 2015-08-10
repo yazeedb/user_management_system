@@ -29,6 +29,12 @@ function routeConfig ($locationProvider, $urlRouterProvider, $stateProvider, api
 			templateUrl: 'views/pages/users/all.html',
 			controller: 'usersController',
 			controllerAs: 'usersCtrl'
+		})
+		.state('adminPanel', {
+			url: '/adminPanel/{username}',
+			templateUrl: 'views/pages/users/adminPanel.html',
+			controller: 'adminPanelController',
+			controllerAs: 'apCtrl'
 		});
 
 	$urlRouterProvider.otherwise('/');

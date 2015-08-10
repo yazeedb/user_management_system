@@ -3,8 +3,8 @@ ums.controller('usersController', ['$http', 'userService', usersController]);
 function usersController ($http, userService) {
 	var vm = this;
 
-	var currentUser = userService.getMe();
-	currentUser.success(function (res, status) {
+	var getMe = userService.getMe();
+	getMe.success(function (res, status) {
 		vm.isAdmin = res.admin;
 	})
 	.error(function (res, status) {
@@ -23,5 +23,9 @@ function usersController ($http, userService) {
 
 	vm.showOneUser = function (user) {
 		vm.oneUser = user;
+
+		//Set the full name of the user
+		var fullName = userService.makeFullName(vm.oneUser.firstName, vm.oneUser.lastName);
+		vm.oneUser.fullName = fullName; 
 	};
 }

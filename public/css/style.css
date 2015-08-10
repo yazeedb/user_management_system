@@ -26,3 +26,8 @@ a:hover {
   display: block;
   font-weight: 700;
 }
+.admin-panel .user-card {
+  float: none;
+  width: 90%;
+  margin: 0 auto;
+}

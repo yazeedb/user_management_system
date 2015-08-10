@@ -1,1 +1,34 @@
-adminPanel
+<form ng-submit="apCtrl.updateUser()" id="updateUser">
+	<button class="btn btn-danger" ui-sref="users">Cancel</button>
+	<button class="btn btn-success" type="submit">Save</button>
+	<div class="admin-panel">
+		<div class="user-card panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">
+					{{ apCtrl.currentUser.username }}
+				</h3>
+			</div>
+			<div class="list-group">
+				<div class="user-attr list-group-item">
+					<span class="attr-title">Full Name</span>
+					<input class="form-control" type="text" ng-model="apCtrl.currentUser.fullName">
+				</div>
+				<div class="user-attr list-group-item">
+					<span class="attr-title">Email</span>
+					<input class="form-control" type="text" ng-model="apCtrl.currentUser.email">
+				</div>
+				<div class="user-attr list-group-item">
+					<span class="attr-title">Admin</span>
+					<select>
+						<option value="true" ng-selected="apCtrl.currentUser.admin">True</option>
+						<option value="false" ng-selected="!apCtrl.currentUser.admin">False</option>
+					</select>
+				</div>
+				<div class="user-attr list-group-item" ng-repeat="(info, attr) in apCtrl.currentUser.etc">
+					<span class="attr-title">{{ info | capitalizeFirstLetter }}</span>
+					<input class="form-control" type="text" ng-model="attr">
+				</div>
+			</div>
+		</div>	
+	</div>		
+</form>

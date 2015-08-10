@@ -1,34 +1,32 @@
-<div class="users-wrapper">
-	<ul class="users list-group">
-		<li class="user list-group-item" ng-repeat="user in usersCtrl.users" ng-click="usersCtrl.showOneUser(user)" ng-class="{ 'active': user.username == usersCtrl.oneUser.username }">
-			<span>{{ user.username }}</span>
-			<span class="admin-label badge" ng-if="user.admin">Admin</span>
-		</li>
-	</ul>
+<ul class="users list-group">
+	<li class="user list-group-item" ng-repeat="user in usersCtrl.users" ng-click="usersCtrl.showOneUser(user)" ng-class="{ 'active': user.username == usersCtrl.oneUser.username }">
+		<span>{{ user.username }}</span>
+		<span class="admin-label badge" ng-if="user.admin">Admin</span>
+	</li>
+</ul>
 
-	<div class="user-card panel panel-default" ng-show="usersCtrl.oneUser">
-		<div class="panel-heading">
-			<h3 class="panel-title">
-				{{ usersCtrl.oneUser.username }}
-				<span class="admin-label badge" ng-if="usersCtrl.oneUser.admin">Admin</span>
-			</h3>
+<div class="user-card panel panel-default" ng-show="usersCtrl.oneUser">
+	<div class="panel-heading">
+		<h3 class="panel-title">
+			{{ usersCtrl.oneUser.username }}
+			<span class="admin-label badge" ng-if="usersCtrl.oneUser.admin">Admin</span>
+		</h3>
+	</div>									
+	<div class="list-group">
+		<div class="user-attr list-group-item">
+			<span class="attr-title">Full Name</span>
+			{{ usersCtrl.oneUser.fullName }}
 		</div>
-		<div class="list-group">
-			<div class="user-attr list-group-item">
-				<span class="attr-title">Name</span>
-				{{ usersCtrl.oneUser.firstName + ' ' + usersCtrl.oneUser.lastName }}
-			</div>
-			<div class="user-attr list-group-item">
-				<span class="attr-title">Email</span>
-				{{ usersCtrl.oneUser.email }}
-			</div>
-			<div class="user-attr list-group-item" ng-repeat="(info, attr) in usersCtrl.oneUser.etc">
-				<span class="attr-title">{{ info | capitalizeFirstLetter }}</span>
-				{{ attr }}
-			</div>
-			<a class="user-admin-panel list-group-item" ng-if="usersCtrl.isAdmin">
-				<button class="btn btn-info">Manage</button>
-			</a>
+		<div class="user-attr list-group-item">
+			<span class="attr-title">Email</span>
+			{{ usersCtrl.oneUser.email }}
 		</div>
-	</div>	
-</div>		
+		<div class="user-attr list-group-item" ng-repeat="(info, attr) in usersCtrl.oneUser.etc">
+			<span class="attr-title">{{ info | capitalizeFirstLetter }}</span>
+			{{ attr }}
+		</div>
+		<div class="user-admin-panel list-group-item" ng-if="usersCtrl.isAdmin">
+			<a ui-sref="adminPanel({ username: usersCtrl.oneUser.username })" class="btn btn-info">Manage</a>
+		</div>
+	</div>
+</div>	
