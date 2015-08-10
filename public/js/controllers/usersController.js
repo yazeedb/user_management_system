@@ -5,6 +5,7 @@ function usersController ($http, userService) {
 
 	var getMe = userService.getMe();
 	getMe.success(function (res, status) {
+		console.log(res);
 		vm.isAdmin = res.admin;
 	})
 	.error(function (res, status) {

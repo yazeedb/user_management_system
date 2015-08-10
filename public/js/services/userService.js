@@ -23,7 +23,7 @@ function userService ($http) {
 	};
 
 	this.getMe = function () {
-		return $http.get('/api/me/', { cache: true });
+		return $http.get('/api/me/');
 	};
 
 	this.makeFullName = function (firstName, lastName) {
