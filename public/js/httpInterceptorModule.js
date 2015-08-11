@@ -1,8 +1,8 @@
 var httpInterceptorModule = angular.module('httpInterceptorModule', []);
 
-httpInterceptorModule.factory('interceptHttp', ['$window', '$location', interceptHttp]);
+httpInterceptorModule.factory('interceptHttp', ['$rootScope', '$window', '$location', interceptHttp]);
 
-function interceptHttp ($window, $location) {
+function interceptHttp ($rootScope, $window, $location) {
 	var interceptFactory = {};
 
 	interceptFactory.request = function (config) {
@@ -15,14 +15,11 @@ function interceptHttp ($window, $location) {
 		return config;
 	};
 
-	interceptFactory.response = function(res) {
-		//console.log(res.config.headers['x-access-token']);
-    	return res;
-    }
-
 	interceptFactory.responseError = function (res) {
-		$.notify(res.statusText);
-		console.log(res);
+		var errorNotification = res.data.message;
+
+		$.notify(errorNotification, 'error');
+
 		if (res.status == 401 || res.status == 403) {
 			$window.localStorage.removeItem('token');
 			$location.path('/login');

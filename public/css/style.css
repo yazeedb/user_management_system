@@ -11,74 +11,20 @@ a:hover {
 .container-fullwidth nav .navbar-brand {
   font-weight: bold;
 }
-.container-fullwidth .onoffswitch {
-  position: relative;
-  width: 68px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
+.container-fullwidth form .form-buttons {
+  width: 90%;
+  margin: 20px auto;
 }
-.container-fullwidth .onoffswitch-checkbox {
-  display: none;
+.container-fullwidth form .form-buttons .editUser {
+  text-align: center;
 }
-.container-fullwidth .onoffswitch-label {
-  display: block;
-  overflow: hidden;
-  cursor: pointer;
-  border: 2px solid #999999;
-  border-radius: 50px;
+.container-fullwidth form .admin-panel {
+  clear: right;
 }
-.container-fullwidth .onoffswitch-inner {
-  display: block;
-  width: 200%;
-  margin-left: -100%;
-  transition: margin 0.3s ease-in 0s;
-}
-.container-fullwidth .onoffswitch-inner:before,
-.container-fullwidth .onoffswitch-inner:after {
-  display: block;
-  float: left;
-  width: 50%;
-  height: 20px;
-  padding: 0;
-  line-height: 20px;
-  font-size: 14px;
-  color: white;
-  font-family: Trebuchet, Arial, sans-serif;
-  font-weight: bold;
-  box-sizing: border-box;
-}
-.container-fullwidth .onoffswitch-inner:before {
-  content: "ON";
-  padding-left: 10px;
-  background-color: #5cb85c;
-  color: #FFFFFF;
-}
-.container-fullwidth .onoffswitch-inner:after {
-  content: "OFF";
-  padding-right: 10px;
-  background-color: #EEEEEE;
-  color: #999999;
-  text-align: right;
-}
-.container-fullwidth .onoffswitch-switch {
-  display: block;
-  width: 18px;
-  margin: 1px;
-  background: #FFFFFF;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 48px;
-  border: 2px solid #999999;
-  border-radius: 50px;
-  transition: all 0.3s ease-in 0s;
-}
-.container-fullwidth .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
-  margin-left: 0;
-}
-.container-fullwidth .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
-  right: 0px;
+.container-fullwidth form .admin-panel .user-card {
+  float: none;
+  width: 90%;
+  margin: 0 auto;
 }
 #loginForm {
   width: 60%;
@@ -89,7 +35,7 @@ a:hover {
 }
 .users {
   width: 40%;
-  height: 350px;
+  height: 450px;
   overflow-y: scroll;
   float: left;
   margin: 0 5%;
@@ -109,8 +55,73 @@ a:hover {
   display: block;
   font-weight: 700;
 }
-.admin-panel .user-card {
-  float: none;
-  width: 90%;
-  margin: 0 auto;
+/*Styles for checkbox switch input*/
+.onoffswitch {
+  position: relative;
+  width: 68px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+.onoffswitch-checkbox {
+  display: none;
+}
+.onoffswitch-label {
+  display: block;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid #999999;
+  border-radius: 50px;
+}
+.onoffswitch-inner {
+  display: block;
+  width: 200%;
+  margin-left: -100%;
+  transition: margin 0.3s ease-in 0s;
+}
+.onoffswitch-inner:before,
+.onoffswitch-inner:after {
+  display: block;
+  float: left;
+  width: 50%;
+  height: 20px;
+  padding: 0;
+  line-height: 20px;
+  font-size: 14px;
+  color: white;
+  font-family: Trebuchet, Arial, sans-serif;
+  font-weight: bold;
+  box-sizing: border-box;
+}
+.onoffswitch-inner:before {
+  content: "ON";
+  padding-left: 10px;
+  background-color: #5cb85c;
+  color: #FFFFFF;
+}
+.onoffswitch-inner:after {
+  content: "OFF";
+  padding-right: 10px;
+  background-color: #EEEEEE;
+  color: #999999;
+  text-align: right;
+}
+.onoffswitch-switch {
+  display: block;
+  width: 18px;
+  margin: 1px;
+  background: #FFFFFF;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 48px;
+  border: 2px solid #999999;
+  border-radius: 50px;
+  transition: all 0.3s ease-in 0s;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+  margin-left: 0;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+  right: 0px;
 }

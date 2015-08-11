@@ -23,7 +23,7 @@ function apiRouter (app, express) {
 			if (user) {
 				//if the password entered is invalid
 				if (!user.comparePassword(req.body.password)) {
-					return res.status(403).send({ message: 'Incorrect password' });
+					return res.status(403).send({ message: 'Incorrect username/password' });
 				} else {
 					var payload = {
 						//User info to give the JWT payload
@@ -43,7 +43,7 @@ function apiRouter (app, express) {
 				}
 
 			} else {
-				return res.status(403).send({ message: 'User not found' });
+				return res.status(403).send({ message: 'Incorrect username/password' });
 			}
 		})
 	});
