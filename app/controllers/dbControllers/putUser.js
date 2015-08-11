@@ -4,7 +4,6 @@ function putUser (err, user, req, res) {
 
 	for (key in req.body) {
 		user[key] = req.body[key];
-		//console.log(req.body[key]);
 	}
 
 	//Return a save promise

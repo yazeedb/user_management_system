@@ -8,17 +8,12 @@ function adminPanelController ($stateParams, userService) {
 
 	getCurrentUser.success(function (res, status) {
 		vm.currentUser = res;
-
-		//Set the full name of the user
-		var fullName = userService.makeFullName(vm.currentUser.firstName, vm.currentUser.lastName);
-		vm.currentUser.fullName = fullName; 
 	})
 	.error(function (res, status) {
 		console.log(res);
 	});	
 
 	vm.updateUser = function () {
-		console.log(vm.currentUser);
 		var updatedUser = userService.update(vm.currentUser.username, vm.currentUser);
 		updatedUser.success(function (res, status) {
 			console.log(res);
