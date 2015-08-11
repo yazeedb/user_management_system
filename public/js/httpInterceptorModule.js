@@ -21,6 +21,7 @@ function interceptHttp ($window, $location) {
     }
 
 	interceptFactory.responseError = function (res) {
+		$.notify(res.statusText);
 		console.log(res);
 		if (res.status == 401 || res.status == 403) {
 			$window.localStorage.removeItem('token');

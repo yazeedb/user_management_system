@@ -1,6 +1,6 @@
-ums.controller('adminPanelController', ['$stateParams', 'userService', adminPanelController]);
+ums.controller('adminPanelController', ['$state', '$stateParams', 'userService', adminPanelController]);
 
-function adminPanelController ($stateParams, userService) {
+function adminPanelController ($state, $stateParams, userService) {
 	var vm = this;
 
 	//Get the user requested for the admin panel
@@ -16,7 +16,9 @@ function adminPanelController ($stateParams, userService) {
 	vm.updateUser = function () {
 		var updatedUser = userService.update(vm.currentUser.username, vm.currentUser);
 		updatedUser.success(function (res, status) {
-			console.log(res);
+			var successNotification = 'Updated ' + vm.currentUser.username;
+			$.notify(successNotification, 'success');
+			$state.go('users');
 		})
 		.error(function (res, status) {
 			console.log(res);
