@@ -16,9 +16,9 @@
 </head>
 <body ng-app="ums" ng-controller="navController as navCtrl">
 	<div class="container-fullwidth">
-		<nav class="navbar navbar-default" role="navigation">
+		<nav class="navbar navbar-default">
 			<a class="navbar-brand" ui-sref="home">UMS</a>
-			<ul class="nav navbar-nav">
+			<ul class="nav navbar-nav" ng-if="$root.isLoggedIn">
 				<li>
 					<a ui-sref="users">Users</a>
 				</li>

@@ -15,6 +15,11 @@ function interceptHttp ($window, $location) {
 		return config;
 	};
 
+	interceptFactory.response = function(res) {
+		//console.log(res.config.headers['x-access-token']);
+    	return res;
+    }
+
 	interceptFactory.responseError = function (res) {
 		console.log(res);
 		if (res.status == 401 || res.status == 403) {
@@ -23,7 +28,7 @@ function interceptHttp ($window, $location) {
 		}
 
 		return res;
-	}
+	};
 
 	return interceptFactory;
 }

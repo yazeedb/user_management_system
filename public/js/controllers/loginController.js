@@ -1,6 +1,6 @@
-ums.controller('loginController', ['$state', 'authService', loginController]);
+ums.controller('loginController', ['$rootScope', '$state', 'authService', loginController]);
 
-function loginController ($state, authService) {
+function loginController ($rootScope, $state, authService) {
 	var vm = this;
 
 	vm.formData = {};
@@ -8,10 +8,13 @@ function loginController ($state, authService) {
 	vm.doLogin = function (userData) {
 		var loginPromise = authService.login(userData);
 
+		//If successful
 		loginPromise.success(function (res, status) {
-			//If successful, set the token in localStorage and redirect to the home page
+			//Set the token in localStorage
 			authService.setToken(res.token);
-
+			//Set isLoggedIn to true in order to show our navbar
+			$rootScope.isLoggedIn = true;
+			//Redirect to the home page
 			$state.go('home');
 		})
 		.error(function (res, status) {
