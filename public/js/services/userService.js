@@ -15,7 +15,7 @@ function userService ($http) {
 	}
 
 	this.update = function (username, userData) {
-		return $http.post('/api/users/' + username, userData);
+		return $http.put('/api/users/' + username, userData);
 	};
 
 	this.delete = function (username) {

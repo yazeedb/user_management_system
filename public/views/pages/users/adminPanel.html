@@ -19,10 +19,13 @@
 				</div>
 				<div class="user-attr list-group-item">
 					<span class="attr-title">Admin</span>
-					<select>
-						<option value="true" ng-selected="apCtrl.currentUser.admin">True</option>
-						<option value="false" ng-selected="!apCtrl.currentUser.admin">False</option>
-					</select>
+					<div class="onoffswitch">
+					    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" ng-checked="apCtrl.currentUser.admin" ng-model="apCtrl.currentUser.admin">
+					    <label class="onoffswitch-label" for="myonoffswitch">
+					        <span class="onoffswitch-inner"></span>
+					        <span class="onoffswitch-switch"></span>
+					    </label>
+					</div>
 				</div>
 				<div class="user-attr list-group-item" ng-repeat="(info, attr) in apCtrl.currentUser.etc">
 					<span class="attr-title">{{ info | capitalizeFirstLetter }}</span>

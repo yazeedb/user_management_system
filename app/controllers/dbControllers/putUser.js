@@ -1,16 +1,11 @@
 function putUser (err, user, req, res) {
 	//Update the user with the information entered
-	if (req.body.username)
-		user.username = req.body.username;
+	var key;
 
-	if (req.body.password)
-		user.password = req.body.password;
-
-	if (req.body.firstName)
-		user.firstName = req.body.firstName;
-
-	if (req.body.lastName)
-		user.lastName = req.body.lastName;
+	for (key in req.body) {
+		user[key] = req.body[key];
+		//console.log(req.body[key]);
+	}
 
 	//Return a save promise
 	return user.save();

@@ -19,5 +19,12 @@ function adminPanelController ($stateParams, userService) {
 
 	vm.updateUser = function () {
 		console.log(vm.currentUser);
+		var updatedUser = userService.update(vm.currentUser.username, vm.currentUser);
+		updatedUser.success(function (res, status) {
+			console.log(res);
+		})
+		.error(function (res, status) {
+			console.log(res);
+		});
 	}
 }
