@@ -8,9 +8,9 @@ function signupController ($state, userService) {
 	vm.submitForm = function () {
 		var newUser = userService.create(vm.formData);
 
-		newUser.success(function (res, status) {
+		newUser.then(function (res) {
 			//Notify the user that their account has been created
-			$.notify('Signup successful. You may now log in', 'success');
+			$.notify('Signup success. You may now log in', 'success');
 			//Go to the login page
 			$state.go('login');
 		});

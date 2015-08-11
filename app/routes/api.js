@@ -51,12 +51,8 @@ function apiRouter (app, express) {
 	apiRouter.post('/users', function (req, res) {
 			dbInterface.postUsers(req.body).addBack(function (err) {
 				if (err) {
-					//This means a duplicate user has been entered
-					if (err.code == 11000) {
-						res.json({ message: 'That username is already taken' });
-					} else {
-						res.send(err);
-					}
+					console.log(err);
+					res.send(err);
 				} else {
 					res.json({ message: 'User added' });
 				}
