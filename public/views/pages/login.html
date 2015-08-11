@@ -1,8 +1,17 @@
-<form method="POST" ng-submit="loginCtrl.doLogin(loginCtrl.formData)">
-	<input type="text" ng-model="loginCtrl.formData.username">
-	<input type="text" ng-model="loginCtrl.formData.password">
+<form method="POST" id="loginForm" ng-submit="loginCtrl.doLogin()">
+	<h3>Login</h3>
+	<div class="form-group">
+		<label for="username">Username</label>
+		<input type="text" id="username" class="form-control" ng-model="loginCtrl.formData.username">
+	</div>
 
-	<button type="submit">Login</button>
+	<div class="form-group">
+		<label for="password">Password</label>
+		<input type="password" id="password" class="form-control" ng-model="loginCtrl.formData.password">
+	</div>
+	
+
+	<button type="submit" class="btn btn-success">Login</button>
 
 	<h3>Don't have an account? <a ui-sref="signup">Make one!</a></h3>
 </form>

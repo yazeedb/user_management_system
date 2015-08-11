@@ -4,6 +4,20 @@ a {
 a:hover {
   text-decoration: none;
 }
+.container-fullwidth {
+  font-family: 'Oxygen', sans-serif;
+  font-size: 18px;
+}
+.container-fullwidth nav .navbar-brand {
+  font-weight: bold;
+}
+#loginForm {
+  width: 60%;
+  margin: 0 auto;
+}
+#loginForm h3 {
+  text-align: center;
+}
 .users {
   width: 40%;
   height: 350px;

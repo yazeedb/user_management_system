@@ -5,8 +5,8 @@ function loginController ($rootScope, $state, authService) {
 
 	vm.formData = {};
 
-	vm.doLogin = function (userData) {
-		var loginPromise = authService.login(userData);
+	vm.doLogin = function () {
+		var loginPromise = authService.login(vm.formData);
 
 		//If successful
 		loginPromise.success(function (res, status) {
