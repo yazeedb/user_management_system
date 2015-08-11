@@ -5,14 +5,14 @@ function signupController ($state, userService) {
 
 	vm.formData = {};
 
-	vm.submitForm = function (formData) {
-		userService.create(formData)
-		.success(function (res, status) {
-			$state.go('/login');
-		})
-		.error(function (res, status) {
-			console.log(res);
-			console.log(status);
-		})
+	vm.submitForm = function () {
+		var newUser = userService.create(vm.formData);
+
+		newUser.success(function (res, status) {
+			//Notify the user that their account has been created
+			$.notify('Signup successful. You may now log in', 'success');
+			//Go to the login page
+			$state.go('login');
+		});
 	};
 }
