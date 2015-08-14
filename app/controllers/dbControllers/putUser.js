@@ -1,9 +1,9 @@
-function putUser (err, user) {
+function putUser (user, newInfo) {
 	//Update the user with the information entered
 	var key;
 
-	for (key in req.body) {
-		user[key] = req.body[key];
+	for (key in newInfo) {
+		user[key] = newInfo[key];
 	}
 
 	//Return a save promise

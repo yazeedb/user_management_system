@@ -117,14 +117,10 @@ function apiRouter (app, express) {
 		})
 		.put(function (req, res) {
 			dbInterface.getUsers(req.params).exec(function (err, user) {
-				dbInterface.putUser(err, user, req, res).addBack(function (err) {
+				dbInterface.putUser(user, req.body).addBack(function (err) {
 					if (err) {
-						//This means a duplicate user has been entered
-						if (err.code == 11000) {
-							res.json({ message: 'That username is already taken' });
-						} else {
-							res.send(err);
-						}
+						console.log(err);
+						res.send(err);
 					}
 
 					res.json({ message: 'User saved' });
