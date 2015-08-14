@@ -11,12 +11,18 @@ a:hover {
 .container-fullwidth nav .navbar-brand {
   font-weight: bold;
 }
+.container-fullwidth button.deleteUser.btn.btn-danger {
+  margin-left: 70px;
+}
 .container-fullwidth form .form-buttons {
   width: 90%;
   margin: 20px auto;
 }
 .container-fullwidth form .form-buttons .editUser {
   text-align: center;
+}
+.container-fullwidth form .form-buttons .cancel {
+  margin-right: 15px;
 }
 .container-fullwidth form .admin-panel {
   clear: right;

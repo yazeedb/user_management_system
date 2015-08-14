@@ -1,4 +1,4 @@
-function putUser (err, user, req, res) {
+function putUser (err, user) {
 	//Update the user with the information entered
 	var key;
 

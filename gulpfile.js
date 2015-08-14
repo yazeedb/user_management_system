@@ -1,6 +1,5 @@
 var gulp = require('gulp'),
 	less = require('gulp-less'),
-	sourcemaps = require('gulp-sourcemaps'),
 	nodemon = require('gulp-nodemon');
 
 gulp.task('compileLess', function () {

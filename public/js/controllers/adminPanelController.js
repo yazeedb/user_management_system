@@ -25,5 +25,13 @@ function adminPanelController ($state, $stateParams, userService) {
 		.error(function (res, status) {
 			console.log(res);
 		});
-	}
+	};
+
+	vm.deleteUser = function () {
+		userService.delete(vm.currentUser.username)
+		.then(function (res, status) {
+			$.notify(res.data.message, 'success');
+			$state.go('users');
+		});
+	};
 }

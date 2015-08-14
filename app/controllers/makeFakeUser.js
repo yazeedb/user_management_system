@@ -17,7 +17,7 @@ function makeFakeUser () {
 	fakePerson.username = faker.internet.userName(fakePerson.firstName, fakePerson.lastName);
 	fakePerson.email = faker.internet.email(fakePerson.firstName, fakePerson.lastName);
 
-	return dbInterface.postUsers(fakePerson);
+	return dbInterface.postUser(fakePerson);
 }
 
 function randomBoolean () {
