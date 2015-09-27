@@ -30,6 +30,5 @@ node_modules
 #Bower components
 public/libs
 
-config.js
 flowcharts
 
