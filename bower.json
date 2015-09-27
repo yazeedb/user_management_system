@@ -1,0 +1,23 @@
+{
+  "name": "user_management_system",
+  "version": "0.0.0",
+  "homepage": "https://github.com/yazeedb/user_management_system",
+  "authors": [
+    "yazman12 <yazman12@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/libs",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-ui-router": "~0.2.15",
+    "bootstrap": "~3.3.5",
+    "angular": "~1.4.6",
+    "jquery": "~2.1.4"
+  }
+}
