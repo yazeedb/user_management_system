@@ -4,7 +4,7 @@ var express = require('express'),
 	bodyParser = require('body-parser'),
 	mongoose = require('mongoose');
 
-mongoose.connect(config.database);
+mongoose.connect(process.env.MONGO_URI);
 
 //Allow Express to show static files in the /public folder
 app.use(express.static(__dirname + '/public'));
