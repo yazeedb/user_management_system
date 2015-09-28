@@ -49,7 +49,7 @@ function apiRouter (app, express) {
 	});
 
 	apiRouter.post('/users', function (req, res) {
-			dbInterface.postUsers(req.body).addBack(function (err) {
+			dbInterface.postUser(req.body).addBack(function (err) {
 				if (err) {
 					console.log(err);
 					res.send(err);
