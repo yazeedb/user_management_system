@@ -10,10 +10,6 @@
 			<span class="attr-title">Full Name</span>
 			{{ usersCtrl.oneUser.fullName }}
 		</div>
-		<div class="user-attr list-group-item">
-			<span class="attr-title">Email</span>
-			{{ usersCtrl.oneUser.email }}
-		</div>
 		<div class="user-attr list-group-item" ng-repeat="(info, attr) in usersCtrl.oneUser.etc">
 			<span class="attr-title">{{ info | capitalizeFirstLetter }}</span>
 			{{ attr }}
