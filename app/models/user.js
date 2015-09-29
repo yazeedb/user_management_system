@@ -6,7 +6,6 @@ var UserSchema = new mongoose.Schema({
 	//username must be unique–no duplicates allowed
 	username: { type: String, required: true, index: { unique: true }},
 	password: { type: String, required: true, select: false },
-	email: { type: String, index: { unique: true }},
 	admin: { type: Boolean },
 	firstName: { type: String },
 	lastName: { type: String },
